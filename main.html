@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulrika & Elias - Vårt Bröllop</title>
+    <link rel="stylesheet" href="styles.css?v=9">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Lösenordsskydd -->
+    <script>
+        // Kontrollera om användaren är inloggad
+        if (localStorage.getItem('weddingAccess') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="home-icon">⌂</span>
+            </a>
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">≡</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Hem</a></li>
+                <li><a href="#details">Information</a></li>
+                <li><a href="#rsvp">OSA</a></li>
+                <li><a href="#couple">Pokemonkort</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#gallery">Galleri</a></li>
+                <li><a href="#" id="logoutBtn" style="color: #61796F;">Logga ut</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Ulrika & Elias</h1>
+            <p class="hero-date">16 maj 2026</p>
+            <p class="hero-location">Grytsbergs säteri, Stjärnhov</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span id="days">000</span>
+                    <label>Dagar</label>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <label>Timmar</label>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <label>Minuter</label>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <label>Sekunder</label>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- Er förlovningsbild -->
+            <img src="images/IMG_1480.jpg" alt="Ulrika & Elias Förlovningsfoto">
+        </div>
+    </section>
+
+    <!-- Wedding Details Section -->
+    <section id="details" class="details">
+        <div class="container">
+            <h2>Bröllopsinformation</h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">⛪</div>
+                    <h3>Vigsel</h3>
+                    <p><strong>Tid:</strong> 16:00</p>
+                    <p><strong>Plats:</strong> Gryts Kyrka</p>
+                    <p><strong>Adress:</strong> Gryts Kyrka, Stjärnhov</p>
+                    <a href="#" class="map-link" target="_blank">Visa på karta</a>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">🥂</div>
+                    <h3>Mottagning</h3>
+                    <p><strong>Tid:</strong> Direkt efter vigseln</p>
+                    <p><strong>Plats:</strong> Grytsbergs Säteri</p>
+                    <p><strong>Adress:</strong> Grytsbergs Säteri, Stjärnhov</p>
+                    <a href="#" class="map-link" target="_blank">Visa på karta</a>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">👔</div>
+                    <h3>Klädkod</h3>
+                    <p>Information om klädkod kommer senare</p>
+                    <p><strong>Färgtema:</strong> Kommer att meddelas</p>
+                    <p>Vi återkommer med detaljer!</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">🏨</div>
+                    <h3>Boende</h3>
+                    <p><strong>Övernattning:</strong></p>
+                    <p>Grytsbergs Säteri</p>
+                    <p>1000 kr/natt per person</p>
+                    <p>Frukost ingår</p>
+                    <p><em>Övernattning till självkostnadspris på fina Grytsberg!</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="rsvp">
+        <div class="container">
+            <h2>OSA - Anmälan</h2>
+            <p class="rsvp-intro">Vi hoppas att du kan fira med oss! Vänligen svara senast [Datum].</p>
+            <div class="google-form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc48JjXu05rYcY7ap7SfK5tcn2PpqQTwci5NwwKZgnJD-0Lcw/viewform?embedded=true" width="640" height="899" frameborder="0" marginheight="0" marginwidth="0">Läser in …</iframe>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- Couple Section -->
+    <section id="couple" class="couple">
+        <div class="container">
+            <h2>Brudparet</h2>
+            <div class="pokemon-cards">
+                <div class="pokemon-card groom-card">
+                    <div class="card-header">
+                        <h3>Sulan</h3>
+                        <span class="hp">HP 100</span>
+                    </div>
+                    <div class="card-image">
+                        <img src="images/elias.jpg" alt="Elias">
+                    </div>
+                    <div class="card-description">
+                        <p><em>"Klassisk lillebror från Mariefred, spelar fotboll och Wordfeud och är alltid öppen för att kolla på film eller spela sällskapsspel.</em></p>
+                    </div>
+                    <div class="card-info">
+                        <div class="pokemon-type">
+                            <span class="type-badge groom-type">Brudgum</span>
+                        </div>
+                        <div class="pokemon-stats">
+                            <div class="stat">
+                                <span class="stat-name">Snooza</span>
+                                <span class="stat-value">★★★★★</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">Luftgitarr</span>
+                                <span class="stat-value">★★★★☆</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">FPL</span>
+                                <span class="stat-value">★★☆☆☆</span>
+                            </div>
+                        </div>
+                        <div class="pokemon-ability">
+                            <strong>Special Ability:</strong> Sudoku
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pokemon-card bride-card">
+                    <div class="card-header">
+                        <h3>Ullis</h3>
+                        <span class="hp">HP 100</span>
+                    </div>
+                    <div class="card-image">
+                        <img src="images/ullis.jpg" alt="Ulrika">
+                    </div>
+                    <div class="card-description">
+                        <p><em>"Mellansyster. "</em></p>
+                    </div>
+                    <div class="card-info">
+                        <div class="pokemon-type">
+                            <span class="type-badge bride-type">💕 Brud</span>
+                        </div>
+                        <div class="pokemon-stats">
+                            <div class="stat">
+                                <span class="stat-name">Fotarbete</span>
+                                <span class="stat-value">★★★★☆</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">Tidsoptimist</span>
+                                <span class="stat-value">★★★★★</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-name">Svara på sms</span>
+                                <span class="stat-value">★☆☆☆☆</span>
+                            </div>
+                        </div>
+                        <div class="pokemon-ability">
+                            <strong>Special Ability:</strong>Välja GIFs i Slack
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Kontakta Oss</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Kontakta oss</h3>
+                    <p>✉️ ulrikaelias@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Vårt Galleri</h2>
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="images/gallery-1.jpg" alt="Bild 1" style="display: none;">
+                    <div class="placeholder-image">Bild 1</div>
+                </div>
+                <div class="slide">
+                    <img src="images/gallery-2.jpg" alt="Bild 2" style="display: none;">
+                    <div class="placeholder-image">Bild 2</div>
+                </div>
+                <div class="slide">
+                    <img src="images/gallery-3.jpg" alt="Bild 3" style="display: none;">
+                    <div class="placeholder-image">Bild 3</div>
+                </div>
+                <div class="slide">
+                    <img src="images/gallery-4.jpg" alt="Bild 4" style="display: none;">
+                    <div class="placeholder-image">Bild 4</div>
+                </div>
+                <div class="slide">
+                    <img src="images/gallery-5.jpg" alt="Bild 5" style="display: none;">
+                    <div class="placeholder-image">Bild 5</div>
+                </div>
+                <div class="slide">
+                    <img src="images/gallery-6.jpg" alt="Bild 6" style="display: none;">
+                    <div class="placeholder-image">Bild 6</div>
+                </div>
+                
+                <!-- Navigation arrows -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">‹</button>
+                <button class="slide-nav next" onclick="changeSlide(1)">›</button>
+                
+                <!-- Slide indicators -->
+                <div class="slide-indicators">
+                    <span class="indicator active" onclick="currentSlide(1)"></span>
+                    <span class="indicator" onclick="currentSlide(2)"></span>
+                    <span class="indicator" onclick="currentSlide(3)"></span>
+                    <span class="indicator" onclick="currentSlide(4)"></span>
+                    <span class="indicator" onclick="currentSlide(5)"></span>
+                    <span class="indicator" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Ulrika & Elias. Gjord med kärlek för vårt stora dag.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

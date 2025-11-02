@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Välkommen till vårt bröllop</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffeef3 0%, #f8f4f7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .hearts {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #d4637a;
+        }
+        
+        h1 {
+            color: #d4637a;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #d4637a;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: #d4637a;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            background: #c45269;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .hint {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 15px;
+            font-style: italic;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="hearts">💕</div>
+        <h1>Välkommen till vårt bröllop</h1>
+        <p>Denna sida är endast för våra inbjudna gäster. Ange lösenordet för att fortsätta.</p>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="password">Lösenord:</label>
+                <input type="password" id="password" required placeholder="Ange lösenord...">
+            </div>
+            
+            <button type="submit" class="login-btn">Kom in</button>
+            
+            <div id="errorMessage" class="error-message">
+                Fel lösenord. Försök igen eller kontakta brudparet.
+            </div>
+            
+            <div class="hint">
+                Tipset finns i er inbjudan 😊
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // ÄNDRA DETTA LÖSENORD TILL ERT EGET
+        const correctPassword = "16Maj"; // Ändra till ert lösenord
+        
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const enteredPassword = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (enteredPassword === correctPassword) {
+                // Spara att användaren är inloggad
+                localStorage.setItem('weddingAccess', 'true');
+                // Gå till huvudsidan
+                window.location.href = 'main.html';
+            } else {
+                // Visa felmeddelande
+                errorMessage.style.display = 'block';
+                document.getElementById('password').value = '';
+                document.getElementById('password').focus();
+            }
+        });
+        
+        // Kontrollera om användaren redan är inloggad
+        if (localStorage.getItem('weddingAccess') === 'true') {
+            window.location.href = 'main.html';
+        }
+    </script>
+</body>
+</html>
