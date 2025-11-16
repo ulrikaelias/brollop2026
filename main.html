@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ulrika & Elias - Vårt Bröllop</title>
-    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="styles.css?v=59">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -14,6 +14,13 @@
         if (localStorage.getItem('weddingAccess') !== 'true') {
             window.location.href = 'index.html';
         }
+        
+        function logout() {
+            if (confirm('Är du säker på att du vill logga ut?')) {
+                localStorage.removeItem('weddingAccess');
+                window.location.href = 'index.html';
+            }
+        }
     </script>
 
     <!-- Navigation -->
@@ -22,15 +29,13 @@
             <a href="#home" class="nav-logo">
                 <span class="home-icon">⌂</span>
             </a>
-            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">≡</div>
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()" style="user-select: none; -webkit-tap-highlight-color: transparent; touch-action: manipulation; z-index: 9999; position: relative;">≡</div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Hem</a></li>
                 <li><a href="#details">Information</a></li>
-                <li><a href="#rsvp">OSA</a></li>
-                <li><a href="#couple">Pokemonkort</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#rsvp">Anmälan</a></li>
                 <li><a href="#gallery">Galleri</a></li>
-                <li><a href="#" id="logoutBtn" style="color: #61796F;">Logga ut</a></li>
+                <li><a href="#" id="logoutBtn" style="color: #61796F;" onclick="logout()">Logga ut</a></li>
             </ul>
         </div>
     </nav>
@@ -38,27 +43,9 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Ulrika & Elias</h1>
+            <h1 class="hero-title">ULRIKA & ELIAS</h1>
             <p class="hero-date">16 maj 2026</p>
             <p class="hero-location">Grytsbergs säteri, Stjärnhov</p>
-            <div class="countdown" id="countdown">
-                <div class="countdown-item">
-                    <span id="days">000</span>
-                    <label>Dagar</label>
-                </div>
-                <div class="countdown-item">
-                    <span id="hours">00</span>
-                    <label>Timmar</label>
-                </div>
-                <div class="countdown-item">
-                    <span id="minutes">00</span>
-                    <label>Minuter</label>
-                </div>
-                <div class="countdown-item">
-                    <span id="seconds">00</span>
-                    <label>Sekunder</label>
-                </div>
-            </div>
         </div>
         <div class="hero-image">
             <!-- Er förlovningsbild -->
@@ -72,39 +59,25 @@
             <h2>Bröllopsinformation</h2>
             <div class="details-grid">
                 <div class="detail-card">
-                    <div class="detail-icon">⛪</div>
+                    <div class="detail-icon"></div>
                     <h3>Vigsel</h3>
                     <p><strong>Tid:</strong> 16:00</p>
-                    <p><strong>Plats:</strong> Gryts Kyrka</p>
-                    <p><strong>Adress:</strong> Gryts Kyrka, Stjärnhov</p>
-                    <a href="#" class="map-link" target="_blank">Visa på karta</a>
+                    <p><strong>Plats:</strong> Gryts kyrka, Stjärnhov</p>
                 </div>
                 
                 <div class="detail-card">
-                    <div class="detail-icon">🥂</div>
-                    <h3>Mottagning</h3>
-                    <p><strong>Tid:</strong> Direkt efter vigseln</p>
-                    <p><strong>Plats:</strong> Grytsbergs Säteri</p>
-                    <p><strong>Adress:</strong> Grytsbergs Säteri, Stjärnhov</p>
-                    <a href="#" class="map-link" target="_blank">Visa på karta</a>
+                    <div class="detail-icon"></div>
+                    <h3>Mingel och fest </h3>
+                    <p><strong>Plats:</strong> Grytsbergs Säteri (2 minuter från kyrkan)</p>
+                    <p><strong>Klädkod:</strong> Mörk kostym</p>
                 </div>
                 
                 <div class="detail-card">
-                    <div class="detail-icon">👔</div>
-                    <h3>Klädkod</h3>
-                    <p>Information om klädkod kommer senare</p>
-                    <p><strong>Färgtema:</strong> Kommer att meddelas</p>
-                    <p>Vi återkommer med detaljer!</p>
-                </div>
-                
-                <div class="detail-card">
-                    <div class="detail-icon">🏨</div>
-                    <h3>Boende</h3>
-                    <p><strong>Övernattning:</strong></p>
+                    <div class="detail-icon"></div>
+                    <h3>Övernattning</h3>
                     <p>Grytsbergs Säteri</p>
-                    <p>1000 kr/natt per person</p>
-                    <p>Frukost ingår</p>
-                    <p><em>Övernattning till självkostnadspris på fina Grytsberg!</em></p>
+                    <p>950 kr/natt per person</p>
+                    <p>Frukost ingår!</p>
                 </div>
             </div>
         </div>
@@ -113,10 +86,10 @@
     <!-- RSVP Section -->
     <section id="rsvp" class="rsvp">
         <div class="container">
-            <h2>OSA - Anmälan</h2>
-            <p class="rsvp-intro">Vi hoppas att du kan fira med oss! Vänligen svara senast [Datum].</p>
+            <h2>Anmälan</h2>
+            <p class="rsvp-intro">Vi hoppas att ni kan fira med oss! Vänligen svara senast 1 mars.</p>
             <div class="google-form-container">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc48JjXu05rYcY7ap7SfK5tcn2PpqQTwci5NwwKZgnJD-0Lcw/viewform?embedded=true" width="640" height="899" frameborder="0" marginheight="0" marginwidth="0">Läser in …</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc48JjXu05rYcY7ap7SfK5tcn2PpqQTwci5NwwKZgnJD-0Lcw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" id="googleForm">Läser in …</iframe>
             </div>
         </div>
     </section>
@@ -127,8 +100,8 @@
 
 
 
-    <!-- Couple Section -->
-    <section id="couple" class="couple">
+    <!-- Couple Section - HIDDEN FOR NOW -->
+    <section id="couple" class="couple" style="display: none;">
         <div class="container">
             <h2>Brudparet</h2>
             <div class="pokemon-cards">
@@ -205,64 +178,16 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Kontakta Oss</h2>
-            <div class="contact-info">
-                <div class="contact-card">
-                    <h3>Kontakta oss</h3>
-                    <p>✉️ ulrikaelias@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
         <div class="container">
-            <h2>Vårt Galleri</h2>
-            <div class="slideshow-container">
-                <div class="slide active">
-                    <img src="images/gallery-1.jpg" alt="Bild 1" style="display: none;">
-                    <div class="placeholder-image">Bild 1</div>
+            <h2>Galleri</h2>
+            <div class="gallery-carousel">
+                <button class="carousel-nav prev" onclick="scrollGallery('left')" id="prevBtn">‹</button>
+                <div class="gallery-scroll" id="galleryScroll">
+                    <!-- Images will be loaded dynamically -->
                 </div>
-                <div class="slide">
-                    <img src="images/gallery-2.jpg" alt="Bild 2" style="display: none;">
-                    <div class="placeholder-image">Bild 2</div>
-                </div>
-                <div class="slide">
-                    <img src="images/gallery-3.jpg" alt="Bild 3" style="display: none;">
-                    <div class="placeholder-image">Bild 3</div>
-                </div>
-                <div class="slide">
-                    <img src="images/gallery-4.jpg" alt="Bild 4" style="display: none;">
-                    <div class="placeholder-image">Bild 4</div>
-                </div>
-                <div class="slide">
-                    <img src="images/gallery-5.jpg" alt="Bild 5" style="display: none;">
-                    <div class="placeholder-image">Bild 5</div>
-                </div>
-                <div class="slide">
-                    <img src="images/gallery-6.jpg" alt="Bild 6" style="display: none;">
-                    <div class="placeholder-image">Bild 6</div>
-                </div>
-                
-                <!-- Navigation arrows -->
-                <button class="slide-nav prev" onclick="changeSlide(-1)">‹</button>
-                <button class="slide-nav next" onclick="changeSlide(1)">›</button>
-                
-                <!-- Slide indicators -->
-                <div class="slide-indicators">
-                    <span class="indicator active" onclick="currentSlide(1)"></span>
-                    <span class="indicator" onclick="currentSlide(2)"></span>
-                    <span class="indicator" onclick="currentSlide(3)"></span>
-                    <span class="indicator" onclick="currentSlide(4)"></span>
-                    <span class="indicator" onclick="currentSlide(5)"></span>
-                    <span class="indicator" onclick="currentSlide(6)"></span>
-                </div>
+                <button class="carousel-nav next" onclick="scrollGallery('right')" id="nextBtn">›</button>
             </div>
         </div>
     </section>
@@ -270,10 +195,152 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Ulrika & Elias. Gjord med kärlek för vårt stora dag.</p>
+            <p>&copy; 2026 Ulrika & Elias</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Test if JavaScript is working
+        console.log('JavaScript is loading');
+        
+        // Mobile menu function
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            if (navMenu) {
+                navMenu.classList.toggle('show');
+            }
+        }
+        
+        // Dynamic gallery loader
+        async function loadGalleryImages() {
+            const galleryScroll = document.getElementById('galleryScroll');
+            // Clear existing images first
+            galleryScroll.innerHTML = '';
+            
+            const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+            const maxImages = 50;
+            const foundImages = [];
+            
+            // Check each number sequentially
+            for (let i = 1; i <= maxImages; i++) {
+                let imageFound = false;
+                
+                // Try each extension for this number
+                for (const ext of imageExtensions) {
+                    if (imageFound) break; // Skip other extensions once we find one
+                    
+                    try {
+                        const imageUrl = `gallery/${i}.${ext}?v=${Date.now()}`;
+                        const exists = await checkImageExists(imageUrl);
+                        
+                        if (exists) {
+                            foundImages.push({ number: i, url: imageUrl });
+                            imageFound = true;
+                        }
+                    } catch (error) {
+                        // Image doesn't exist, continue
+                    }
+                }
+            }
+            
+            // Now add all found images in order
+            foundImages.forEach(imageInfo => {
+                createGalleryItem(galleryScroll, imageInfo.url, imageInfo.number);
+            });
+        }
+        
+        // Helper function to check if image exists
+        function checkImageExists(url) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+                img.src = url;
+            });
+        }
+        
+        // Helper function to create gallery item
+        function createGalleryItem(container, imageSrc, imageNumber) {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            
+            const imgElement = document.createElement('img');
+            imgElement.src = imageSrc;
+            imgElement.alt = `Galleri bild ${imageNumber}`;
+            imgElement.loading = 'lazy';
+            
+            // Add click handler for lightbox
+            imgElement.onclick = function() {
+                openLightbox(this.src);
+            };
+            
+            galleryItem.appendChild(imgElement);
+            container.appendChild(galleryItem);
+        }
+        
+        // Gallery scroll function
+        function scrollGallery(direction) {
+            const galleryScroll = document.getElementById('galleryScroll');
+            const scrollAmount = 440; // Width of one image + gap (420px + 20px gap)
+            
+            if (direction === 'left') {
+                galleryScroll.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                galleryScroll.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+        
+        // Simple lightbox function
+        function openLightbox(imageSrc) {
+            const lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.onclick = function() {
+                document.body.removeChild(this);
+            };
+            
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.className = 'lightbox-image';
+            
+            lightbox.appendChild(img);
+            document.body.appendChild(lightbox);
+        }
+        
+        // Function to adjust iframe scrolling based on device
+        function adjustFormScrolling() {
+            const iframe = document.querySelector('#googleForm');
+            const isMobile = window.innerWidth <= 768;
+            
+            if (iframe) {
+                if (isMobile) {
+                    iframe.setAttribute('scrolling', 'auto');
+                    iframe.style.height = '1400px';
+                } else {
+                    iframe.setAttribute('scrolling', 'no');
+                    iframe.style.height = '1200px';
+                }
+            }
+        }
+        
+        // Also add event listener when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            if (mobileBtn) {
+                console.log('Mobile button found');
+            } else {
+                console.log('Mobile button NOT found');
+            }
+            
+            // Adjust form scrolling on load
+            adjustFormScrolling();
+            
+            // Load gallery images
+            loadGalleryImages();
+        });
+        
+        // Adjust form scrolling on window resize
+        window.addEventListener('resize', adjustFormScrolling);
+    </script>
 </body>
 </html>

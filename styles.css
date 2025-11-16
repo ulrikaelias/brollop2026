@@ -1,3 +1,7 @@
+/* Import wedding invitation fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lora:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -6,9 +10,10 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lora', serif;
     line-height: 1.6;
-    color: #333;
+    color: #2C3E30;
+    background: #FEFEFE;
     overflow-x: hidden;
 }
 
@@ -41,17 +46,18 @@ body {
 }
 
 .nav-logo {
-    font-family: 'Dancing Script', cursive;
-    font-size: 24px;
-    font-weight: 700;
-    color: #61796F;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #2C3E30;
     text-decoration: none;
+    letter-spacing: 0.5px;
 }
 
 .home-icon {
     display: inline-block;
     font-size: 20px;
-    color: #61796F;
+    color: #2C3E30;
     font-weight: normal;
     font-family: Arial, sans-serif;
 }
@@ -64,22 +70,45 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: #61796F;
+    color: #2C3E30;
     font-weight: 500;
     transition: color 0.3s ease;
+    font-family: 'Lora', serif;
 }
 
 .nav-menu a:hover {
-    color: #4A5F55;
+    color: #1E2924;
 }
 
 /* Mobile Menu Button */
 .mobile-menu-btn {
-    display: none;
-    font-size: 24px;
+    display: none; /* Hidden by default on desktop */
+    font-size: 28px;
     color: #61796F;
     cursor: pointer;
-    padding: 5px;
+    padding: 12px;
+    background: rgba(97, 121, 111, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 1000;
+    position: relative;
+    border: 1px solid rgba(97, 121, 111, 0.2);
+}
+
+.mobile-menu-btn:hover {
+    background: rgba(97, 121, 111, 0.2);
+    transform: scale(1.05);
+}
+
+.mobile-menu-btn:active {
+    transform: scale(0.95);
+    background: rgba(97, 121, 111, 0.3);
 }
 
 /* Hero Section */
@@ -87,46 +116,119 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 80px 20px 20px;
-    background: linear-gradient(135deg, #F8FDF9 0%, #F0F7F2 30%, #E8F4EB 100%);
+    justify-content: center;
+    padding: 120px 80px 40px;
+    background: #FEFEFE;
     position: relative;
     overflow: hidden;
-    gap: 30px;
+    gap: 45px;
+}
+
+
+
+/* Additional floating leaf decorations */
+.hero .leaf-decoration {
+    position: absolute;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+.hero .leaf-decoration {
+    position: absolute;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.hero .leaf-decoration:nth-child(1) {
+    top: 25%;
+    right: 15%;
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(60deg, rgba(139, 167, 139, 0.08), rgba(97, 121, 111, 0.06));
+    border-radius: 60% 40% 70% 30%;
+    transform: rotate(-15deg);
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero .leaf-decoration:nth-child(2) {
+    bottom: 20%;
+    left: 10%;
+    width: 80px;
+    height: 40px;
+    background: linear-gradient(-45deg, rgba(74, 95, 85, 0.05), rgba(139, 167, 139, 0.08));
+    border-radius: 50% 50% 80% 20%;
+    transform: rotate(45deg);
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(-15deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(-10deg);
+    }
+}
+
+.hero .original-before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(ellipse at center, rgba(44, 62, 48, 0.05) 0%, transparent 50%), 
+                radial-gradient(ellipse at 30% 70%, rgba(74, 95, 85, 0.03) 0%, transparent 40%);
+    border-radius: 60% 40% 50% 70%;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .hero-content {
-    flex: 1;
-    max-width: 600px;
+    flex: 0 0 auto;
+    max-width: 500px;
     z-index: 2;
 }
 
 .hero-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 4rem;
-    color: #61796F;
-    margin-bottom: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5rem;
+    color: #2C3E30;
+    margin-bottom: 20px;
     line-height: 1.1;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(44, 62, 48, 0.05);
 }
 
 .hero-date {
-    font-size: 1.5rem;
+    font-family: 'La Belle Aurore', cursive;
+    font-size: 2.4rem;
     color: #4A5F55;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: 400;
 }
 
 .hero-location {
-    font-size: 1.2rem;
+    font-family: 'La Belle Aurore', cursive;
+    font-size: 2.0rem;
     color: #5A7BA0;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    font-weight: 400;
 }
 
 .hero-image {
-    flex: 1;
-    max-width: 500px;
-    margin-left: 30px;
+    flex: 0 0 auto;
+    max-width: 600px;
 }
 
 .hero-image img {
@@ -152,53 +254,19 @@ body {
     font-weight: 500;
 }
 
-/* Countdown Timer */
-.countdown {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.countdown-item {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 18px 15px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(97, 121, 111, 0.15);
-    min-width: 75px;
-    border: 1px solid rgba(97, 121, 111, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-.countdown-item span {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #61796F;
-    margin-bottom: 5px;
-}
-
-.countdown-item label {
-    font-size: 0.85rem;
-    color: #4A5F55;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 500;
-}
-
 /* Story Section */
 .story {
     padding: 100px 0;
-    background: white;
+    background: #FEFEFE;
 }
 
 .story h2 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 3rem;
-    color: #61796F;
+    color: #2C3E30;
     text-align: center;
     margin-bottom: 60px;
+    font-weight: 500;
 }
 
 .story-content {
@@ -209,10 +277,11 @@ body {
 }
 
 .story-text h3 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'La Belle Aurore', cursive;
     font-size: 2rem;
-    color: #4A5F55;
+    color: #2C3E30;
     margin-bottom: 15px;
+    font-weight: 400;
 }
 
 .story-text p {
@@ -247,28 +316,34 @@ body {
 
 /* Details Section */
 .details {
-    padding: 100px 0;
-    background: linear-gradient(135deg, #F0F7F2 0%, #E8F4EB 30%, #F8FDF9 100%);
+    padding: 60px 0;
+    background: #FEFEFE;
+    position: relative;
+    overflow: hidden;
 }
 
+
+
 .details h2 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
-    color: #61796F;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: #2C3E30;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 .details-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
 .detail-card {
     background: rgba(255, 255, 255, 0.9);
     padding: 40px 30px;
-    border-radius: 20px;
+    border-radius: 10px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(97, 121, 111, 0.15);
     transition: transform 0.3s ease;
@@ -288,10 +363,11 @@ body {
 }
 
 .detail-card h3 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'La Belle Aurore', cursive;
     font-size: 2rem;
-    color: #61796F;
+    color: #2C3E30;
     margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .detail-card p {
@@ -316,128 +392,144 @@ body {
 
 /* Gallery Section */
 .gallery {
-    padding: 100px 0;
+    padding: 60px 0;
     background: white;
+    position: relative;
+    overflow: hidden;
 }
+
+
 
 .gallery h2 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 3rem;
-    color: #61796F;
+    color: #2C3E30;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
+    font-weight: 500;
 }
 
-/* Slideshow Styles */
-.slideshow-container {
+/* Horizontal Scrolling Gallery Styles */
+.gallery-carousel {
     position: relative;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
-    background: #f8f9fa;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.slide {
-    display: none;
-    position: relative;
-    width: 100%;
-    height: 500px;
-}
-
-.slide.active {
-    display: block;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slide .placeholder-image {
-    height: 100%;
+.gallery-scroll {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #61796F;
-    background: linear-gradient(135deg, #F0F7F2 0%, #E8F4EB 100%);
-}
-
-.slide-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(97, 121, 111, 0.8);
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    font-size: 24px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-    z-index: 10;
-}
-
-.slide-nav:hover {
-    background: rgba(97, 121, 111, 1);
-}
-
-.slide-nav.prev {
-    left: 20px;
-}
-
-.slide-nav.next {
-    right: 20px;
-}
-
-.slide-indicators {
-    text-align: center;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
-}
-
-.indicator {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background: #ddd;
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.indicator.active,
-.indicator:hover {
-    background: #61796F;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    align-items: center; /* Center items vertically */
+}
+
+.gallery-scroll::-webkit-scrollbar {
+    display: none; /* WebKit */
 }
 
 .gallery-item {
-    aspect-ratio: 1;
-    border-radius: 15px;
+    flex: 0 0 420px; /* Increased width */
+    max-height: 560px; /* Max height for landscape images (4:3) */
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-item img {
+    width: 420px; /* Increased width */
+    height: auto; /* Let height adjust naturally */
+    max-height: 560px; /* Cap height for very tall images */
+    object-fit: cover; /* Crop if needed */
+    object-position: center; /* Center the image */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(97, 121, 111, 0.9);
+    color: white;
+    border: none;
+    padding: 15px 18px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-nav:hover {
+    background: rgba(97, 121, 111, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+    left: -25px;
+}
+
+.carousel-nav.next {
+    right: -25px;
+}
+
+@media (max-width: 768px) {
+    .carousel-nav {
+        display: none; /* Hide on mobile, use touch scroll instead */
+    }
+    
+    .gallery-item {
+        flex: 0 0 320px; /* Increased mobile width */
+        max-height: 427px; /* Max height for landscape images */
+    }
+    
+    .gallery-item img {
+        width: 320px; /* Increased mobile width */
+        max-height: 427px; /* Max height on mobile */
+    }
+}
+
+/* Lightbox Styles */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .gallery-item .placeholder-image {
@@ -446,7 +538,7 @@ body {
 
 /* Couple Section */
 .couple {
-    padding: 100px 0;
+    padding: 60px 0;
     background: linear-gradient(135deg, #61796F 0%, #4A5F55 50%, #7A9184 100%);
     position: relative;
 }
@@ -463,11 +555,12 @@ body {
 }
 
 .couple h2 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 3rem;
     color: white;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
+    font-weight: 500;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -737,16 +830,21 @@ body {
 
 /* RSVP Section */
 .rsvp {
-    padding: 100px 0;
-    background: white;
+    padding: 60px 0;
+    background: #FEFEFE;
+    position: relative;
+    overflow: hidden;
 }
 
+
+
 .rsvp h2 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 3rem;
-    color: #61796F;
+    color: #2C3E30;
     text-align: center;
     margin-bottom: 30px;
+    font-weight: 500;
 }
 
 .rsvp-intro {
@@ -767,11 +865,11 @@ body {
 }
 
 .google-form-container {
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
     background: white;
-    padding: 30px;
-    border-radius: 20px;
+    padding: 15px;
+    border-radius: 10px;
     box-shadow: 0 10px 30px rgba(97, 121, 111, 0.1);
     border: 1px solid rgba(232, 244, 235, 0.3);
 }
@@ -779,8 +877,46 @@ body {
 .google-form-container iframe {
     width: 100%;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     background: white;
+    min-height: 1200px;
+}
+
+.mobile-form-message {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.mobile-form-message h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: #2C3E30;
+    margin-bottom: 20px;
+}
+
+.mobile-form-message p {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.mobile-form-button {
+    display: inline-block;
+    background: #61796F;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+}
+
+.mobile-form-button:hover {
+    background: #4A5F55;
 }
 
 .form-group {
@@ -864,11 +1000,12 @@ body {
 }
 
 .contact h2 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 3rem;
-    color: #61796F;
+    color: #2C3E30;
     text-align: center;
     margin-bottom: 60px;
+    font-weight: 500;
 }
 
 .contact-info {
@@ -887,10 +1024,11 @@ body {
 }
 
 .contact-card h3 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'La Belle Aurore', cursive;
     font-size: 2rem;
-    color: #4A5F55;
+    color: #2C3E30;
     margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .contact-card p {
@@ -905,11 +1043,12 @@ body {
 }
 
 .additional-info h3 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 2.5rem;
-    color: #61796F;
+    color: #2C3E30;
     text-align: center;
     margin-bottom: 30px;
+    font-weight: 500;
 }
 
 .additional-info ul {
@@ -938,7 +1077,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .mobile-menu-btn {
-        display: block;
+        display: flex !important;
     }
     
     .nav-menu {
@@ -976,7 +1115,7 @@ body {
     .hero {
         flex-direction: column;
         text-align: center;
-        padding: 90px 15px 30px;
+        padding: 110px 15px 30px;
         gap: 20px;
         min-height: 90vh;
     }
@@ -1015,32 +1154,13 @@ body {
         font-size: 14px;
     }
     
-    .countdown {
-        justify-content: center;
-        gap: 12px;
-        margin-top: 15px;
-    }
-    
-    .countdown-item {
-        min-width: 70px;
-        padding: 15px 12px;
-    }
-    
-    .countdown-item span {
-        font-size: 1.6rem;
-    }
-    
-    .countdown-item label {
-        font-size: 0.8rem;
-    }
-    
     .story-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
     
     .details-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
     
@@ -1088,7 +1208,8 @@ body {
     }
     
     .google-form-container iframe {
-        height: 700px;
+        height: 1100px !important;
+        min-height: 1100px !important;
     }
     
     .container {
@@ -1142,7 +1263,7 @@ body {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 85px 10px 25px;
+        padding: 105px 10px 25px;
         min-height: 85vh;
     }
     
@@ -1165,23 +1286,6 @@ body {
         font-size: 13px;
     }
     
-    .countdown {
-        gap: 10px;
-    }
-    
-    .countdown-item {
-        min-width: 65px;
-        padding: 12px 10px;
-    }
-    
-    .countdown-item span {
-        font-size: 1.4rem;
-    }
-    
-    .countdown-item label {
-        font-size: 0.75rem;
-    }
-    
     h2 {
         font-size: 2.5rem !important;
     }
@@ -1194,22 +1298,46 @@ body {
     .google-form-container {
         margin: 0 10px;
         padding: 15px 10px;
+        overflow: visible;
+        max-height: none;
     }
     
     .google-form-container iframe {
-        height: 600px;
+        height: 1200px !important;
+        min-height: 1200px !important;
+        max-height: none !important;
+        overflow: auto;
     }
     
     .container {
-        padding: 0 10px;
+        padding: 0 20px;
+    }
+    
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .detail-card {
-        padding: 25px 15px;
+        padding: 25px 20px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     
     .nav-logo {
         font-size: 20px;
+    }
+    
+    .detail-card h3 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+    
+    .detail-card p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 8px;
     }
     
     /* Pokemon Cards Small Mobile Styles */
@@ -1308,9 +1436,10 @@ body {
 }
 
 .additional-info-section h2 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 3rem;
-    color: #61796F;
+    color: #2C3E30;
+    font-weight: 500;
     text-align: center;
     margin-bottom: 50px;
 }

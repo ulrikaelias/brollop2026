@@ -3,110 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Välkommen till vårt bröllop</title>
+    <title>Välkommen till Ulrika och Elias bröllop!</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ffeef3 0%, #f8f4f7 100%);
+            font-family: 'Lora', serif;
+            background: #FEFEFE;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0;
+            color: #2C3E30;
         }
         
         .login-container {
-            background: white;
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 50px;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(44, 62, 48, 0.1);
             text-align: center;
-            max-width: 400px;
+            max-width: 500px;
             width: 90%;
+            border: 1px solid rgba(232, 244, 235, 0.3);
+            backdrop-filter: blur(10px);
         }
         
         .hearts {
             font-size: 3rem;
-            margin-bottom: 20px;
-            color: #d4637a;
+            margin-bottom: 30px;
+            color: #4A5F55;
         }
         
         h1 {
-            color: #d4637a;
-            font-size: 2rem;
-            margin-bottom: 10px;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Cormorant Garamond', serif;
+            color: #2C3E30;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
         
         p {
-            color: #666;
-            margin-bottom: 30px;
+            color: #4A5F55;
+            margin-bottom: 40px;
             line-height: 1.6;
+            font-size: 1.1rem;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-align: left;
         }
         
         label {
             display: block;
             margin-bottom: 8px;
-            color: #333;
-            font-weight: 600;
+            color: #2C3E30;
+            font-weight: 500;
+            font-family: 'Lora', serif;
         }
         
         input[type="password"] {
             width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
+            padding: 15px 18px;
+            border: 2px solid rgba(232, 244, 235, 0.5);
             border-radius: 10px;
             font-size: 16px;
             box-sizing: border-box;
             transition: border-color 0.3s ease;
+            font-family: 'Lora', serif;
+            background: rgba(255, 255, 255, 0.9);
         }
         
         input[type="password"]:focus {
             outline: none;
-            border-color: #d4637a;
+            border-color: #4A5F55;
+            box-shadow: 0 0 0 3px rgba(74, 95, 85, 0.1);
         }
         
         .login-btn {
             width: 100%;
-            padding: 15px;
-            background: #d4637a;
+            padding: 18px;
+            background: linear-gradient(135deg, #61796F, #4A5F55);
             color: white;
             border: none;
             border-radius: 10px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-family: 'Lora', serif;
+            margin-top: 10px;
         }
         
         .login-btn:hover {
-            background: #c45269;
+            background: linear-gradient(135deg, #4A5F55, #3E514A);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(97, 121, 111, 0.3);
         }
         
         .error-message {
-            color: #e74c3c;
-            margin-top: 15px;
+            color: #c0392b;
+            margin-top: 20px;
             display: none;
+            font-weight: 500;
         }
         
         .hint {
-            font-size: 0.9rem;
-            color: #999;
-            margin-top: 15px;
-            font-style: italic;
+            font-size: 0.95rem;
+            color: #5A7BA0;
+            margin-top: 20px;
+            font-family: 'La Belle Aurore', cursive;
+            font-size: 1.1rem;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lora:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="login-container">
-        <div class="hearts">💕</div>
-        <h1>Välkommen till vårt bröllop</h1>
+        <div class="hearts">✦</div>
+        <h1>Välkommen till Ulrika och Elias bröllop!</h1>
         <p>Denna sida är endast för våra inbjudna gäster. Ange lösenordet för att fortsätta.</p>
         
         <form id="loginForm">
@@ -115,21 +132,21 @@
                 <input type="password" id="password" required placeholder="Ange lösenord...">
             </div>
             
-            <button type="submit" class="login-btn">Kom in</button>
+            <button type="submit" class="login-btn">Logga in</button>
             
             <div id="errorMessage" class="error-message">
                 Fel lösenord. Försök igen eller kontakta brudparet.
             </div>
             
             <div class="hint">
-                Tipset finns i er inbjudan 😊
+                Lösenordet finns i er inbjudan 😊
             </div>
         </form>
     </div>
 
     <script>
         // ÄNDRA DETTA LÖSENORD TILL ERT EGET
-        const correctPassword = "16Maj"; // Ändra till ert lösenord
+        const correctPassword = "16maj"; // Ändra till ert lösenord
         
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();

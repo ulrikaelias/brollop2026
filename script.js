@@ -1,33 +1,13 @@
-// Countdown Timer
-function updateCountdown() {
-    // Ändra detta datum till ert bröllopsdatum
-    const weddingDate = new Date('2026-05-16T16:00:00').getTime();
-    const now = new Date().getTime();
-    const timeLeft = weddingDate - now;
-
-    if (timeLeft > 0) {
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-        document.getElementById('days').innerHTML = days.toString().padStart(3, '0');
-        document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
-        document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
-    } else {
-        document.getElementById('countdown').innerHTML = '<h3>Vi är gifta!</h3>';
-    }
-}
-
-// Uppdatera nedräkningen varje sekund
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
 // Mobile Menu Toggle
 function toggleMobileMenu() {
+    console.log('toggleMobileMenu called'); // Debug
     const navMenu = document.getElementById('navMenu');
-    navMenu.classList.toggle('show');
+    if (navMenu) {
+        navMenu.classList.toggle('show');
+        console.log('Menu toggled, show class:', navMenu.classList.contains('show')); // Debug
+    } else {
+        console.error('navMenu element not found!');
+    }
 }
 
 // Close mobile menu when clicking on a link
@@ -56,31 +36,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Utloggningsfunktion
     const logoutBtn = document.getElementById('logoutBtn');
+    console.log('Logout button found:', logoutBtn); // Debug line
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function(e) {
             e.preventDefault();
+            console.log('Logout clicked'); // Debug line
             if (confirm('Är du säker på att du vill logga ut?')) {
                 localStorage.removeItem('weddingAccess');
+                console.log('Redirecting to index.html'); // Debug line
                 window.location.href = 'index.html';
             }
         });
+    } else {
+        console.error('Logout button not found!');
+    }
+
+    // Mobile menu backup event listener
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            console.log('Mobile menu clicked via event listener'); // Debug
+            toggleMobileMenu();
+        });
+        console.log('Mobile menu event listener added');
+    } else {
+        console.error('Mobile menu button not found!');
     }
 });
 
 // Navbar scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = 'none';
+        }
     }
 });
 
 // RSVP Form hantering
-document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+const rsvpForm = document.getElementById('rsvpForm');
+if (rsvpForm) {
+    rsvpForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
     // Samla form data
@@ -102,18 +103,24 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     
     // I en riktig implementation skulle du skicka detta till en server
     // eller en service som Google Forms, Netlify Forms, eller liknande
-});
+    });
+} else {
+    console.log('RSVP form not found');
+}
 
 // Gallery click functionality (för framtida bildvisning)
-document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const img = this.querySelector('img');
-        if (img && img.style.display !== 'none') {
-            // Här kan du lägga till en lightbox eller modal för att visa bilden större
-            console.log('Öppna bild i lightbox:', img.src);
-        }
+const galleryItems = document.querySelectorAll('.gallery-item');
+if (galleryItems.length > 0) {
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (img && img.style.display !== 'none') {
+                // Här kan du lägga till en lightbox eller modal för att visa bilden större
+                console.log('Öppna bild i lightbox:', img.src);
+            }
+        });
     });
-});
+}
 
 // Animate elements on scroll
 function animateOnScroll() {
