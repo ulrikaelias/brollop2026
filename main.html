@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ulrika & Elias - Vårt Bröllop</title>
-    <link rel="stylesheet" href="styles.css?v=59">
+    <link rel="stylesheet" href="styles.css?v=61">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -211,53 +211,44 @@
             }
         }
         
-        // Dynamic gallery loader
-        async function loadGalleryImages() {
+        // Optimized gallery loader with predefined image list
+        function loadGalleryImages() {
             const galleryScroll = document.getElementById('galleryScroll');
             // Clear existing images first
             galleryScroll.innerHTML = '';
             
-            const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-            const maxImages = 50;
-            const foundImages = [];
+            // Pre-defined list of optimized images (90% smaller file sizes!)
+            const imageFiles = [
+                '1.jpg',
+                '2.jpg', 
+                '3.jpg',
+                '4.jpg',
+                '5.jpg',
+                '6.jpg',
+                '7.jpg',
+                '8.jpg', 
+                '9.jpg',
+                '10.jpg',
+                '11.jpg',
+                '12.jpg',
+                '14.jpg',
+                '14 2.jpg',
+                '15.jpg',
+                '16.jpg',
+                '17.jpg',
+                '18.jpg',
+                '19.jpg',
+                '20.jpg'
+            ];
             
-            // Check each number sequentially
-            for (let i = 1; i <= maxImages; i++) {
-                let imageFound = false;
-                
-                // Try each extension for this number
-                for (const ext of imageExtensions) {
-                    if (imageFound) break; // Skip other extensions once we find one
-                    
-                    try {
-                        const imageUrl = `gallery/${i}.${ext}?v=${Date.now()}`;
-                        const exists = await checkImageExists(imageUrl);
-                        
-                        if (exists) {
-                            foundImages.push({ number: i, url: imageUrl });
-                            imageFound = true;
-                        }
-                    } catch (error) {
-                        // Image doesn't exist, continue
-                    }
-                }
-            }
-            
-            // Now add all found images in order
-            foundImages.forEach(imageInfo => {
-                createGalleryItem(galleryScroll, imageInfo.url, imageInfo.number);
+            // Create gallery items using optimized images
+            imageFiles.forEach((filename, index) => {
+                const imageUrl = `gallery/optimized/${filename}`;
+                createGalleryItem(galleryScroll, imageUrl, index + 1);
             });
         }
         
-        // Helper function to check if image exists
-        function checkImageExists(url) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.onload = () => resolve(true);
-                img.onerror = () => resolve(false);
-                img.src = url;
-            });
-        }
+        // Removed checkImageExists function - no longer needed with predefined image list
         
         // Helper function to create gallery item
         function createGalleryItem(container, imageSrc, imageNumber) {
